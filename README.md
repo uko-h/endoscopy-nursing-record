@@ -36,7 +36,7 @@
 ## medicationsテーブル
 |column|type|options|
 |------|----|-------|
-|scopolamine_butylbromide|
+|scopolamine_butylbromide|integer|null: false|
 |glucagon|integer|null: false|
 |diazepam|‎integer|null: false|
 |midazolam|integer|null: false|
@@ -61,10 +61,10 @@
 |vital_sign_id|integer|foreign_key: true, null: false|
 
 ### アソシエーション
-belongs_to :patient
-belongs_to :vital_sign
-has_many :medications, through: :medications_times
-has_many :medications_times
+- belongs_to :patient
+- belongs_to :vital_sign
+- has_many :medications, through: :medications_times
+- has_many :medications_times
 
 
 ## patients_medicationsテーブル
