@@ -76,3 +76,14 @@
 ### アソシエーション
 - belongs_to :patient
 - belongs_to :medication
+
+
+## medications_timesテーブル
+|column|type|options|
+|------|----|-------|
+|medication_id|integer|foreign_key: true, unll: false|
+|time_id|integer|foreign_key: true, unll: false|
+
+### アソシエーション
+- belongs_to :medication
+- belongs_to :time
