@@ -1,24 +1,78 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## patientsテーブル
+|column|type|options|
+|------|----|-------|
+|name|string|null: false|
+|kana|string|null: false|
+|number|integer|null: false, unique: true|
+|sex|string|null: false|
+|birthday|integer|null: false|
 
-Things you may want to cover:
+### アソシエーション
+- has_many :times
+- has_many :vital_signs
+- has_many :medications, through: :patients_medications
+- has_many :patients_medications
 
-* Ruby version
 
-* System dependencies
+## vital_signsテーブル
+|column|type|options|
+|------|----|-------|
+|blood_pressure|integer|null: false|
+|pulse|integer|null: false|
+|spo2|integer|null: false|
+|rass|integer|null: false|
+|treatment|string|null: false|
+|patient_id|integer|foreign_key: true, null: false|
+|time_id|integer|foreign_key: true, null: false|
 
-* Configuration
 
-* Database creation
+### アソシエーション
+- belongs_to :patient
+- belongs_to :time
 
-* Database initialization
 
-* How to run the test suite
+## medicationsテーブル
+|column|type|options|
+|------|----|-------|
+|scopolamine_butylbromide|
+|glucagon|integer|null: false|
+|diazepam|‎integer|null: false|
+|midazolam|integer|null: false|
+|sosegon|integer|null: false|
+|pethidine|integer|null: false|
 
-* Services (job queues, cache servers, search engines, etc.)
+### アソシエーション
+- has_many :patients, through: :patients_medications
+- has_many :patients_medications
+- has_many :times, through: :medications_times
+- has_many :medications_times
 
-* Deployment instructions
 
-* ...
+## timesテーブル
+|column|type|options|
+|------|----|-------|
+|before_starting|time|null: false|
+|ending_time|time|null: false|
+|in_30_minutes|time|null: false|
+|in_an_hour|time|null: false|
+|patient_id|integer|foreign_key: true, null: false|
+|vital_sign_id|integer|foreign_key: true, null: false|
+
+### アソシエーション
+belongs_to :patient
+belongs_to :vital_sign
+has_many :medications, through: :medications_times
+has_many :medications_times
+
+
+## patients_medicationsテーブル
+|column|type|options|
+|------|----|-------|
+|patient_id|integer|foreign_key: true, null: false|
+|medication_id|integer|foreign_key: true, null: false|
+
+### アソシエーション
+- belongs_to :patient
+- belongs_to :medication
