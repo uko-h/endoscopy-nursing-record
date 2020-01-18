@@ -1,0 +1,32 @@
+.header
+  .header__date
+    2020年 1月 16日
+  .header__title
+    上部内視鏡検査
+  .header__icon
+    = link_to "#", class: "header__icon--btn" do
+      %i.fas.fa-user-plus.fa-2x
+   
+  %ol.patients
+    %li.patient
+      .patient__id
+        33445555
+      .patient__name
+        アイウエオ　カキクケコ
+      .patient__age
+        70歳
+      .patient__sex
+        男
+      .patient__inspection-purpose
+        15日より心窩部痛、黒色便あり。本日Hb8.7　上部消化管出血疑いです。スクリーニングお願いします
+      = link_to "#", class: "patient__icon" do
+        %i.fas.fa-file-medical-alt.fa-1.5rem.patient__icon--btn
+    %li.patient 
+      .patient__id
+        患者番号
+      .patient__name
+        氏名
+      .patient__age
+        年齢
+      .patient__sex
+        性別
