@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  height: 100px;
+  width: 100vw;
+  background-color: #fff;
+
+  &__date {
+    text-align: right;
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  &__title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  &__icon {
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    &--btn {
+      color: hsl(199, 82%, 62%);
+      border: double 5px hsl(199, 82%, 62%);
+      border-radius: 5px;
+      padding: 4px 8px;
+    }
+  }
+}
+
+ol {
+  counter-reset:number; /*数字をリセット*/
+  list-style-type: none!important; /*数字を一旦消す*/
+  padding:0;
+}
+
+ol li {
+  position: relative;
+  padding: 0.5em;
+  line-height: 1.5em;
+  background: #f1f8ff;
+  border-left : solid 35px #5c9ee7;
+  margin-bottom: 5px;
+}
+ol li:before{
+  /* 以下数字をつける */
+  position: absolute;
+  counter-increment: number;
+  content: counter(number);
+  /*数字のデザイン変える*/
+  display:inline-block;
+  color: white;
+  font-family: 'Avenir','Arial Black','Arial',sans-serif;
+  font-weight:bold;
+  font-size: 15px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: -35px;
+  width: 35px;
+  height: 1em;
+  line-height: 1;
+  text-align: center;
+}
+
+.patients {
+  height: calc(100vh - 100px);
+  margin-top: 20px;
+}
+
+.patient {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 25px;
+  font-weight: bolder;
+  
+  &__id {
+    width: 180px;
+  }
+  &__name {
+    width: 300px;
+  }
+  &__age {
+    width: 70px;
+  }
+  &__sex {
+    width: 50px;
+    margin-left: 20px;
+  }
+  &__inspection-purpose {
+    width: 700px;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+  &__icon {
+    right: 0;
+    margin: 0 20px;
+    &--btn {
+      color: #5c9ee7;
+      border: double 5px #5c9ee7;
+      border-radius: 5px;
+      padding: 4px 8px;
+    }
+  }
+}
